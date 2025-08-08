@@ -37,6 +37,6 @@ Extends on your project root `.oxlintrc.json` file:
 
 ## Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=node-modules/read-env-value)](https://github.com/node-modules/read-env-value/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=eggjs/oxlint-config)](https://github.com/eggjs/oxlint-config/graphs/contributors)
 
 Made with [contributors-img](https://contrib.rocks).
