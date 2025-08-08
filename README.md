@@ -25,9 +25,28 @@ Extends on your project root `.oxlintrc.json` file:
   "env": {
     "node": true
   },
+  "categories": {
+    "correctness": "error",
+    "perf": "error",
+    "nursery": "error",
+    "restriction": "error",
+    "style": "error",
+    "pedantic": "error",
+    "suspicious": "error"
+  },
+  "plugins": [
+    "import",
+    "typescript",
+    "unicorn",
+    "jsdoc",
+    "node",
+    "promise",
+    "oxc"
+  ],
   "extends": [
     "./node_modules/@eggjs/oxlint-config/.oxlintrc.json"
-  ]
+  ],
+  "rules": {}
 }
 ```
 
