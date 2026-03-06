@@ -1,6 +1,6 @@
 {
   "name": "@eggjs/oxlint-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -19,7 +19,13 @@
   "license": "MIT",
   "author": "fengmk2",
   "type": "module",
+  "exports": {
+    ".": "./index.mjs",
+    "./.oxlintrc.json": "./.oxlintrc.json"
+  },
+  "main": "./index.mjs",
   "files": [
+    "index.mjs",
     ".oxlintrc.json"
   ],
   "scripts": {
@@ -27,7 +33,15 @@
     "ci": "oxlint",
     "prepublishOnly": "oxlint"
   },
+  "peerDependencies": {
+    "oxlint": ">=1.51.0"
+  },
+  "peerDependenciesMeta": {
+    "oxlint": {
+      "optional": true
+    }
+  },
   "devDependencies": {
-    "oxlint": "^1.11.0"
+    "oxlint": "^1.51.0"
   }
 }

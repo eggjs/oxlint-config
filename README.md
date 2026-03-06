@@ -1,61 +1,49 @@
 # @eggjs/oxlint-config
 
-[![NPM Version](https://img.shields.io/npm/v/@eggjs/oxlint-config)](https://www.npmjs.com/package/@eggjs/oxlint-config)
-[![NPM Downloads](https://img.shields.io/npm/dm/@eggjs/oxlint-config)](https://www.npmjs.com/package/@eggjs/oxlint-config)
-[![NPM License](https://img.shields.io/npm/l/@eggjs/oxlint-config)](https://github.com/eggjs/oxlint-config/blob/master/LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/eggjs/oxlint-config/ci.yml?branch=master)](https://github.com/eggjs/oxlint-config/actions/workflows/ci.yml?query=branch%3Amaster)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/eggjs/oxlint-config)
-
-oxlint config for our projects.
+Shared [oxlint](https://oxc.rs/docs/guide/usage/linter) config for eggjs projects.
 
 ## Install
 
 ```bash
-npm i -D @eggjs/oxlint-config
+npm i @eggjs/oxlint-config --save-dev
 ```
 
 ## Usage
 
-Extends on your project root `.oxlintrc.json` file:
+### With vite-plus (`vite.config.ts`)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "env": {
-    "node": true
+```ts
+import { defineConfig } from 'vite-plus';
+import oxlintConfig from '@eggjs/oxlint-config';
+
+export default defineConfig({
+  lint: {
+    extends: [oxlintConfig],
+    // your overrides...
   },
-  "categories": {
-    "correctness": "error",
-    "perf": "error",
-    "nursery": "error",
-    "restriction": "error",
-    "style": "error",
-    "pedantic": "error",
-    "suspicious": "error"
-  },
-  "plugins": [
-    "import",
-    "typescript",
-    "unicorn",
-    "jsdoc",
-    "node",
-    "promise",
-    "oxc"
-  ],
-  "extends": [
-    "./node_modules/@eggjs/oxlint-config/.oxlintrc.json"
-  ],
-  "rules": {}
-}
+});
+```
+
+### With `oxlint.config.mjs`
+
+```js
+import { defineConfig } from 'oxlint';
+import eggConfig from '@eggjs/oxlint-config';
+
+export default defineConfig({
+  extends: [eggConfig],
+  // your overrides...
+});
+```
+
+### Legacy JSON config (v1)
+
+The `.oxlintrc.json` file is still available for direct use:
+
+```bash
+oxlint -c node_modules/@eggjs/oxlint-config/.oxlintrc.json
 ```
 
 ## License
 
-[MIT](./LICENSE)
-
-## Contributors
-
-[![Contributors](https://contrib.rocks/image?repo=eggjs/oxlint-config)](https://github.com/eggjs/oxlint-config/graphs/contributors)
-
-Made with [contributors-img](https://contrib.rocks).
+[MIT](LICENSE)
